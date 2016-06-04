@@ -117,7 +117,9 @@ tinycolor.prototype = {
         return rgbToHex(this._r, this._g, this._b, allow3Char);
     },
     toHexString: function(allow3Char) {
-        return '#' + this.toHex(allow3Char);
+        // use Hex String to output to not crash script that is using toRGB and not need to edit that script to.
+        this._PerA = mathRound(100*this._a)
+		return "Red:" + mathRound(this._r) + " Green:" + mathRound(this._g) + " Blue:" + mathRound(this._b) + " Intensity:" + this._PerA + "%";
     },
     toHex8: function() {
         return rgbaToHex(this._r, this._g, this._b, this._a);
@@ -130,11 +132,9 @@ tinycolor.prototype = {
     },
     
     toRgbString: function() {
-        return "rgba(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ", " + this._roundA + ")";
-        //return {"Red:" + mathRound(this._r) + " Gren:" + mathRound(this._g) + " Blue:" + mathRound(this._b) + " Intensity:" + this._roundA
-        //return (this._a == 1) ?
-        //  "rgb("  + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ")" :
-        //  "rgba(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ", " + this._roundA + ")";
+        return (this._a == 1) ?
+          "rgb("  + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ")" :
+          "rgba(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ", " + this._roundA + ")";
     },
     toPercentageRgb: function() {
         return { r: mathRound(bound01(this._r, 255) * 100) + "%", g: mathRound(bound01(this._g, 255) * 100) + "%", b: mathRound(bound01(this._b, 255) * 100) + "%", a: this._a };
