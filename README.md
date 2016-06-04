@@ -1,5 +1,7 @@
 # TinyColor
-
+Modified version to show a different output of toHexString() to be like Red:255 Green:0 Blue:0 Intensity:50%
+to be used in a Android Wemos Led List projekt.
+this way the script that uses this script in not needed to modify.
 ## JavaScript color tooling
 
 TinyColor is a small, fast library for color manipulation and conversion in JavaScript.  It allows many forms of input, while providing color conversions and other color utility functions.  It has no dependencies.
