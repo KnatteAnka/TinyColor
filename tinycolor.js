@@ -1,6 +1,7 @@
 // TinyColor v1.3.0
 // https://github.com/bgrins/TinyColor
 // Brian Grinstead, MIT License
+// Edited by KnatteAnka
 
 (function(Math) {
 
@@ -129,7 +130,8 @@ tinycolor.prototype = {
     },
     
     toRgbString: function() {
-        return {"Red:" + mathRound(this._r) + " Gren:" + mathRound(this._g) + " Blue:" + mathRound(this._b) + " Intensity:" + this._roundA
+        return "rgba(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ", " + this._roundA + ")";
+        //return {"Red:" + mathRound(this._r) + " Gren:" + mathRound(this._g) + " Blue:" + mathRound(this._b) + " Intensity:" + this._roundA
         //return (this._a == 1) ?
         //  "rgb("  + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ")" :
         //  "rgba(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ", " + this._roundA + ")";
